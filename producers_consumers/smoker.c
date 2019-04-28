@@ -22,19 +22,20 @@ void smoker_insert(smoker_t *sp) {
     int item = rand() % 3;
     switch (item) {
     case 0:
-        printf("Agent places paper and match\n");
-        V(&sp->tobacco); // Tell tobacco to smoke
+        printf("Agent places paper and tobacco\n");
+        V(&sp->match); // Tell match to smoke
         break;
+
     case 1:
         printf("Agent places tobacco and match\n");
         V(&sp->paper); // Tell paper to smoke
         break;
+
     case 2:
-        printf("Agent places paper and tobacco\n");
-        V(&sp->match); // Tell match to smoke
+        printf("Agent places paper and match\n");
+        V(&sp->tobacco); // Tell tobacco to smoke
         break;
-    default:
-        break;
+
     }
     sleep(0.5);
     P(&sp->agent); // prevent agent to put more than 2 thing on table
@@ -50,6 +51,7 @@ int smoker_remove(smoker_t *sp, char *msg) {
         V(&sp->all_smoker);
         V(&sp->agent);
         break;
+
     case 'P':
         P(&sp->paper);
         P(&sp->all_smoker);
@@ -58,6 +60,7 @@ int smoker_remove(smoker_t *sp, char *msg) {
         V(&sp->all_smoker);
         V(&sp->agent);
         break;
+
     case 'M':
         P(&sp->match);
         P(&sp->all_smoker);
@@ -66,7 +69,6 @@ int smoker_remove(smoker_t *sp, char *msg) {
         V(&sp->all_smoker);
         V(&sp->agent);
         break;
-    default:
-        break;
+
     }
 }
