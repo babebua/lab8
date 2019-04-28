@@ -29,7 +29,7 @@ void smoker_insert(smoker_t *sp) {
         V(&sp->paper);
         break;
     case 2:
-        printf("Agent places tobacco and paper\n");
+        printf("Agent places paper and tobacco\n");
         V(&sp->match);
         break;
     default:
