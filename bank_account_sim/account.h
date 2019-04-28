@@ -3,8 +3,8 @@
 #include <pthread.h>
 #include <semaphore.h>
 
-#define INT_BALANCE 40000
-#define ROUND 40000
+#define INT_BALANCE 400000000
+#define ROUND 400000000
 
 typedef struct {
   char name[31];
