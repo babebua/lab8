@@ -1,17 +1,17 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <pthread.h>
 #include <semaphore.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define INT_BALANCE 400000000
 #define ROUND 400000000
 
 typedef struct {
-  char name[31];
-  int id;
-  int balance;
-  sem_t mutex;
-  sem_t money;
+    char name[31];
+    int id;
+    int balance;
+    sem_t mutex;
+    sem_t withdraw_money;
 } account_info;
 
 void account_init(account_info *sp, int n);
