@@ -6,7 +6,7 @@
 #include "common_threads.h"
 
 account_info *account_database;
-pthread_t *borrow_list;
+pthread_t *borrower_list;
 pthread_t *lender_list;
 
 void *lender(void *arg) // Finish
@@ -58,18 +58,18 @@ int main(int argc, char *argv[]) {
     }
     printf("\n");
 
-    borrow_list = (pthread_t *)malloc(sizeof(pthread_t) * num_account);
+    borrower_list = (pthread_t *)malloc(sizeof(pthread_t) * num_account);
     lender_list = (pthread_t *)malloc(sizeof(pthread_t) * num_account);
 
     for (i = 0; i < num_account; i++) {
         int tid = i;
         Pthread_create(&lender_list[i], NULL, lender, (void *)tid);
-        Pthread_create(&borrow_list[i], NULL, borrower, (void *)tid);
+        Pthread_create(&borrower_list[i], NULL, borrower, (void *)tid);
     }
 
     for (i = 0; i < num_account; i++) {
         Pthread_join(lender_list[i], NULL);
-        Pthread_join(borrow_list[i], NULL);
+        Pthread_join(borrower_list[i], NULL);
     }
 
     printf("\n");
