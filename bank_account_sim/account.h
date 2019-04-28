@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define INT_BALANCE 40000
+#define INT_BALANCE 0
 #define ROUND 40000
 
 typedef struct {
