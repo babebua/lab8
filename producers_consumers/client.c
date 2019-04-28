@@ -35,10 +35,10 @@ int main(int argc, char *argv[]) {
     // Initialize buffer
     smoker_init(shared_data);
 
-    Pthread_create(&p1, NULL, agent, "A");
-    Pthread_create(&p2, NULL, smoker, "T");
-    Pthread_create(&p3, NULL, smoker, "P");
-    Pthread_create(&p4, NULL, smoker, "M");
+    Pthread_create(&p1, NULL, agent, "AGENT");
+    Pthread_create(&p2, NULL, smoker, "TOBACCO");
+    Pthread_create(&p3, NULL, smoker, "PAPER");
+    Pthread_create(&p4, NULL, smoker, "MATCH");
 
     // join waits for the threads to finish
     Pthread_join(p1, NULL);
