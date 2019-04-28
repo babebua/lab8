@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
         exit(0);
     }
     // Initialize buffer
-    sbuf_init(shared_data);
+    smoker_init(shared_data);
 
     Pthread_create(&p1, NULL, agent, "A");
     Pthread_create(&p2, NULL, smoker, "T");
