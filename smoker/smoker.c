@@ -37,7 +37,6 @@ void smoker_insert(smoker_t *sp) {
         printf("Agent places paper and match\n");
         V(&sp->tobacco); // Tell tobacco to smoke
         break;
-
     }
     sleep(0.5);
     P(&sp->agent); // prevent agent to put more than 2 thing on table
@@ -71,6 +70,5 @@ void smoker_remove(smoker_t *sp, char *msg) {
         V(&sp->all_smoker);
         V(&sp->agent);
         break;
-
     }
 }

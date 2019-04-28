@@ -32,7 +32,6 @@ void *borrower(void *arg) {
 }
 
 int main(int argc, char *argv[]) {
-
     int i, num_account;
 
     num_account = 4;
