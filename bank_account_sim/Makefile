@@ -10,5 +10,5 @@ clean:
 simulate: simulate.c account.c account.h
 	gcc -I $(INCLUDES) -o simulate simulate.c account.c $(FLAGS)
 
-simulate_parrallel: sim_par.c account.c account.h
-	 gcc -I $(INCLUDES) -o sim_par sim_par.c account.c $(FLAGS)
+simulate_parrallel: simulate_parrallel.c account.c account.h
+	 gcc -I $(INCLUDES) -o simulate_parrallel simulate_parrallel.c account.c $(FLAGS)
