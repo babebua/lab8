@@ -42,8 +42,8 @@ void smoker_insert(smoker_t *sp) {
 }
 
 void smoker_remove(smoker_t *sp, char *msg) {
-    switch (msg[0]) {
-    case 'T':
+    switch (msg) {
+    case "TOBACCO":
         P(&sp->tobacco);
         P(&sp->all_smoker);
         printf("Tobacco smoker smokes\n");
@@ -52,7 +52,7 @@ void smoker_remove(smoker_t *sp, char *msg) {
         V(&sp->agent);
         break;
 
-    case 'P':
+    case "PAPER":
         P(&sp->paper);
         P(&sp->all_smoker);
         printf("Paper smoker smokes\n");
@@ -61,7 +61,7 @@ void smoker_remove(smoker_t *sp, char *msg) {
         V(&sp->agent);
         break;
 
-    case 'M':
+    case "MATCH":
         P(&sp->match);
         P(&sp->all_smoker);
         printf("Match smoker smokes\n");
