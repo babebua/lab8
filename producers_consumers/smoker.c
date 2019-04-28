@@ -41,7 +41,7 @@ void smoker_insert(smoker_t *sp) {
     P(&sp->agent); // prevent agent to put more than 2 thing on table
 }
 
-int smoker_remove(smoker_t *sp, char *msg) {
+void smoker_remove(smoker_t *sp, char *msg) {
     switch (msg[0]) {
     case 'T':
         P(&sp->tobacco);
