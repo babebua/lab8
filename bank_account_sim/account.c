@@ -12,6 +12,7 @@ void account_init(account_info *sp, int n) {
         sp[i].id = i;
         sp[i].balance = INT_BALANCE;
         Sem_init(&sp[i].mutex, 0, 1);
+        Sem_init(&sp[i].withdraw_money, 0, 1);
     }
 }
 
@@ -32,7 +33,6 @@ void account_withdraw(account_info *sp, int tid, int amount) {
         P(&sp[tid].withdraw_money);
 
         P(&sp[tid].mutex);
-        return;
     }
     sp[tid].balance -= amount;
     V(&sp[tid].mutex);
