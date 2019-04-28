@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "common_threads.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "pthread.h": "c"
     }
 }

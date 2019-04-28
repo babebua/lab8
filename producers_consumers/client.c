@@ -32,9 +32,9 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Malloc unsuccessful\n");
         exit(0);
     }
+    
     // Initialize buffer
     smoker_init(shared_data);
-
     Pthread_create(&p1, NULL, agent, "AGENT");
     Pthread_create(&p2, NULL, smoker, "TOBACCO");
     Pthread_create(&p3, NULL, smoker, "PAPER");

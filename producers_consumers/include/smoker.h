@@ -14,7 +14,7 @@ typedef struct {
     sem_t tobacco;
     sem_t paper;
     sem_t match;
-    sem_t share;
+    sem_t all_smoker;
 } smoker_t;
 /* $end smokert */
 
