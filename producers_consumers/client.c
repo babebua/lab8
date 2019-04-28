@@ -10,7 +10,6 @@
 smoker_t *shared_data;
 
 void *agent(void *arg) {
-    char *msg = arg;
     while (1)
         smoker_insert(shared_data);
     return NULL;
@@ -32,7 +31,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Malloc unsuccessful\n");
         exit(0);
     }
-    
+
     // Initialize buffer
     smoker_init(shared_data);
     Pthread_create(&p1, NULL, agent, "AGENT");
