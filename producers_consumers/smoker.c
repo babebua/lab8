@@ -37,7 +37,7 @@ void smoker_insert(smoker_t *sp) {
         break;
     }
     sleep(0.5);
-    // P(&sp->agent); // 
+    P(&sp->agent); // prevent agent to put more than 2 thing on table
 }
 
 int smoker_remove(smoker_t *sp, char *msg) {
@@ -48,7 +48,7 @@ int smoker_remove(smoker_t *sp, char *msg) {
         printf("Tobacco smoker smokes\n");
         sleep(1);
         V(&sp->all_smoker);
-        // V(&sp->agent);
+        V(&sp->agent);
         break;
     case 'P':
         P(&sp->paper);
@@ -56,7 +56,7 @@ int smoker_remove(smoker_t *sp, char *msg) {
         printf("Paper smoker smokes\n");
         sleep(1);
         V(&sp->all_smoker);
-        // V(&sp->agent);
+        V(&sp->agent);
         break;
     case 'M':
         P(&sp->match);
@@ -64,7 +64,7 @@ int smoker_remove(smoker_t *sp, char *msg) {
         printf("Match smoker smokes\n");
         sleep(1);
         V(&sp->all_smoker);
-        // V(&sp->agent);
+        V(&sp->agent);
         break;
     default:
         break;
