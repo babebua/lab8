@@ -7,6 +7,6 @@ all: client
 clean:
 	rm -f client *~
 
-client: client.c sbuf.c
-	gcc -I $(INCLUDES) -o client client.c sbuf.c $(FLAGS)
+client: client.c smoker.c
+	gcc -I $(INCLUDES) -o client client.c smoker.c $(FLAGS)
 
